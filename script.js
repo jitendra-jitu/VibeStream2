@@ -24,7 +24,7 @@ async function getsongs(folder) {
 
     currentfolder = folder;
 
-    let a = await fetch(`songs/${folder}/`);
+    let a = await fetch(`/songs/${folder}/`);
     let response = await a.text();
     // console.log(response)
 
