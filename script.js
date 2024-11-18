@@ -25,7 +25,9 @@ async function getsongs(folder) {
     currentfolder = folder;
 
     // let a = await fetch(`/songs/${folder}/`);
-    let a = await fetch(`https://your-deployed-app.vercel.app/songs/${folder}`);
+    let a = await fetch(`https://vibe-stream2.vercel.app/songs/${folder}`);
+    
+
 
     let response = await a.text();
     // console.log(response)
@@ -41,7 +43,7 @@ async function getsongs(folder) {
     for (let index = 1; index < s.length; index++) {
         const element = s[index];
         if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split(`/https://your-deployed-app.vercel.app/songs/${folder}/`)[1])
+            songs.push(element.href.split(`/https://vibe-stream2.vercel.app/songs/${folder}/`)[1])
         }
     }
 
@@ -53,7 +55,7 @@ async function getsongs(folder) {
 
 
 
-    let info = await fetch(`https://your-deployed-app.vercel.app/songs/${folder}/info.json`);
+    let info = await fetch(`https://vibe-stream2.vercel.app/songs/${folder}/info.json`);
     let jsondata = await info.json();
 
 
@@ -152,7 +154,7 @@ async function DisplayAlbums() {
         if (e.href.includes("/songs")) {
             folder = e.href.split("/").slice(-2)[0];
 
-            let a = await fetch(`https://your-deployed-app.vercel.app/songs/${folder}/info.json`);
+            let a = await fetch(`https://vibe-stream2.vercel.app/songs/${folder}/info.json`);
             let response = await a.json();
 
             cardContainer.innerHTML +=
@@ -171,7 +173,7 @@ async function DisplayAlbums() {
                             <polygon points="10,8 16,12 10,16" fill="black"/>
                         </svg>
                               
-                        <img src="https://your-deployed-app.vercel.app/songs/${folder}/cover.jpeg" alt="">
+                        <img src="https://vibe-stream2.vercel.app/songs/${folder}/cover.jpeg" alt="">
                         <h4>${response.Name}</h4>
                         <p>${response.Description}</p>
                     </div>`;
