@@ -25,7 +25,7 @@ async function getsongs(folder) {
     currentfolder = folder;
 
     // let a = await fetch(`/songs/${folder}/`);
-    let a = await fetch(`https://your-deployed-app.vercel.app/songs/${folder}/`);
+    let a = await fetch(`https://your-deployed-app.vercel.app/songs/${folder}`);
 
     let response = await a.text();
     // console.log(response)
