@@ -24,7 +24,9 @@ async function getsongs(folder) {
 
     currentfolder = folder;
 
-    let a = await fetch(`/songs/${folder}/`);
+    // let a = await fetch(`/songs/${folder}/`);
+    let a = await fetch(`https://your-deployed-url.com/songs/${folder}/`);
+
     let response = await a.text();
     // console.log(response)
 
@@ -39,7 +41,8 @@ async function getsongs(folder) {
     for (let index = 1; index < s.length; index++) {
         const element = s[index];
         if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split(`/songs/${folder}/`)[1])
+            // songs.push(element.href.split(`/songs/${folder}/`)[1])
+            songs.push(element.href.split(`https://your-deployed-url.com/songs/${folder}/`)[1])
         }
     }
 
@@ -51,7 +54,8 @@ async function getsongs(folder) {
 
 
 
-    let info = await fetch(`songs/${folder}/info.json`);
+    // let info = await fetch(`songs/${folder}/info.json`);
+    let info = await fetch(`https://your-deployed-url.com/songs/${folder}/info.json`);
     let jsondata = await info.json();
 
 
