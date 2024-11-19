@@ -83,9 +83,3 @@ We aim to elevate the user experience with several upcoming features:
 3. Additional Resources: Explore articles and tutorials on modern web development practices, including freeCodeCamp and MDN Web Docs.
 
 
-
-## OpenAI CodeX
-```
-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
-
-```
