@@ -81,5 +81,3 @@ We aim to elevate the user experience with several upcoming features:
 2. Spotify Developer API Documentation: The official Spotify Developer API documentation offers extensive resources, including endpoint descriptions, authentication processes, and usage examples.
 
 3. Additional Resources: Explore articles and tutorials on modern web development practices, including freeCodeCamp and MDN Web Docs.
-
-
