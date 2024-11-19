@@ -10,8 +10,8 @@ let currentfolder;
 let currentsong = new Audio();
 
 const playMusic = (track) => {
-    // let audio=new Audio("https://github.com/jitendra-jitu/VibeStream2/tree/main/songs/"+track);
-    currentsong.src = `https://github.com/jitendra-jitu/VibeStream2/tree/main/songs/${currentfolder}/` + track;
+    // let audio=new Audio("/songs/"+track);
+    currentsong.src = `/songs/${currentfolder}/` + track;
     currentsong.play();
 
     document.querySelector(".songinfo").innerHTML = track
@@ -24,7 +24,7 @@ async function getsongs(folder) {
 
     currentfolder = folder;
 
-    let a = await fetch(`https://github.com/jitendra-jitu/VibeStream2/tree/main/songs/${folder}/`);
+    let a = await fetch(`/songs/${folder}/`);
     let response = await a.text();
     // console.log(response)
 
@@ -39,7 +39,7 @@ async function getsongs(folder) {
     for (let index = 1; index < s.length; index++) {
         const element = s[index];
         if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split(`https://github.com/jitendra-jitu/VibeStream2/tree/main/songs/${folder}/`)[1])
+            songs.push(element.href.split(`/songs/${folder}/`)[1])
         }
     }
 
