@@ -12,7 +12,6 @@
 
 body{
     height: 100vh;
-    overflow-y: hidden;
     background-color: black;
     color: white;
     font-family: var(--font-family,CircularSp,CircularSp-Arab,CircularSp-Hebr,CircularSp Cyrl,CircularSp-Grek,CircularSp-Deva,var(--fallback-fonts,sans-serif));
