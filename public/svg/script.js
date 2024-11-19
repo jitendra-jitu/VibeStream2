@@ -104,7 +104,7 @@ async function getsongs(folder) {
 
     try {
         // Fetch the songs list from a JSON file instead of directory listing
-        let songsResponse = await fetch(`/songs/${folder}/songs.json`);
+        let songsResponse = await fetch(`/songs/${folder}/songlist.json`);
         let songsData = await songsResponse.json();
         songs = songsData.songs; // Assuming the JSON file has a "songs" array
 
@@ -117,25 +117,25 @@ async function getsongs(folder) {
 
         for (const song of songs) {
             songsUl.innerHTML += `<li>
-                <img src="svg/music.svg" alt="" srcset="">
+                <img src="/svg/music.svg" alt="" srcset="">
                 <div class="info">
-                    <div>${song.replace(/%20/g, " ")}</div>
+                    <div>${song.name.replace(/%20/g, " ")}</div>
                     <div>${jsondata.Name}</div>
                 </div>
                 <div class="playnow">
                     <span>playnow</span>
-                    <img class="invert" src="svg/playbtn.svg" alt="">
+                    <img class="invert" src="/svg/playbtn.svg" alt="">
                 </div>
             </li>`;
         }
 
         // Attach EventListener to each song 
-        Array.from(document.querySelector(".songs-list").getElementsByTagName("li")).forEach(e => {
-            e.addEventListener("click", element => {
-                console.log(e.querySelector(".info").firstElementChild.innerHTML);
-                playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim());
+        Array.from(document.querySelector(".songs-list").getElementsByTagName("li")).forEach((e, index) => {
+            e.addEventListener("click", () => {
+                console.log(songs[index].name);
+                playMusic(songs[index].name);
                 if (document.querySelector("#play").src.includes("playbtn.svg")) {
-                    document.querySelector("#play").src = "svg/pause.svg";
+                    document.querySelector("#play").src = "/svg/pause.svg";
                 }
             });
         });
@@ -146,33 +146,6 @@ async function getsongs(folder) {
         return [];
     }
 }
-
-
-
-
-//
-/////
-// seconds to minute:second format[00:00]
-function formatTime(seconds) {
-
-    //as seconds are taken as input 
-    totalMilliseconds = seconds * 1000;
-
-    // Convert milliseconds to total seconds
-    const totalSeconds = Math.floor(totalMilliseconds / 1000);
-
-    // Calculate minutes and seconds
-    const minutes = Math.floor(totalSeconds / 60);
-    const remainingSeconds = totalSeconds % 60;
-
-    // Format minutes and seconds with leading zeros
-    const formattedMinutes = minutes.toString().padStart(2, '0');
-    const formattedSeconds = remainingSeconds.toString().padStart(2, '0');
-
-    return `${formattedMinutes}:${formattedSeconds}`;
-}
-
-
 
 async function DisplayAlbums() {
     let a = await fetch(`songs`);
