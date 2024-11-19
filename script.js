@@ -128,7 +128,7 @@ function formatTime(seconds) {
 
 
 async function DisplayAlbums() {
-    let a = await fetch(`songs`);
+    let a = await fetch(`/songs/`);
     let response = await a.text();
     // console.log(response)
 
