@@ -1,19 +1,15 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "index.html",
-        "use": "@vercel/static"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/songs/(.*)",
-        "dest": "/songs"
-      }
-    ],
-    "static": {
-      "public": "./public"
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
     }
-  }
-  
+  ],
+  "routes": [
+    {
+      "source": "/songs/:folder*",
+      "destination": "/songs/:folder*"
+    }
+  ]
+}

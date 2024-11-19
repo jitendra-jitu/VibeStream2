@@ -24,7 +24,10 @@ async function getsongs(folder) {
 
     currentfolder = folder;
 
-    let a = await fetch(`/songs/${folder}/`);
+    // let a = await fetch(`/songs/${folder}/`);
+    let a = await fetch(`${window.location.origin}/songs/${folder}/`);
+
+
     let response = await a.text();
     // console.log(response)
 
@@ -51,7 +54,8 @@ async function getsongs(folder) {
 
 
 
-    let info = await fetch(`/songs/${folder}/info.json`);
+    // let info = await fetch(`/songs/${folder}/info.json`);
+    let info = await fetch(`${window.location.origin}/songs/${folder}/info.json`);
     let jsondata = await info.json();
 
 
