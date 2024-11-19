@@ -11,7 +11,7 @@ let currentsong = new Audio();
 
 const playMusic = (track) => {
     // let audio=new Audio("/songs/"+track);
-    currentsong.src = `songs/${currentfolder}/` + track;
+    currentsong.src = `/songs/${currentfolder}/` + track;
     currentsong.play();
 
     document.querySelector(".songinfo").innerHTML = track
@@ -24,8 +24,7 @@ async function getsongs(folder) {
 
     currentfolder = folder;
 
-    // let a = await fetch(`songs/${folder}/`);
-    let a = await fetch(`/static/songs/${folder}/`);
+    let a = await fetch(`/songs/${folder}/`);
     let response = await a.text();
     // console.log(response)
 
@@ -40,7 +39,7 @@ async function getsongs(folder) {
     for (let index = 1; index < s.length; index++) {
         const element = s[index];
         if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split(`songs/${folder}/`)[1])
+            songs.push(element.href.split(`/songs/${folder}/`)[1])
         }
     }
 
@@ -52,7 +51,7 @@ async function getsongs(folder) {
 
 
 
-    let info = await fetch(`songs/${folder}/info.json`);
+    let info = await fetch(`/songs/${folder}/info.json`);
     let jsondata = await info.json();
 
 
@@ -151,7 +150,7 @@ async function DisplayAlbums() {
         if (e.href.includes("/songs")) {
             folder = e.href.split("/").slice(-2)[0];
 
-            let a = await fetch(`songs/${folder}/info.json`);
+            let a = await fetch(`/songs/${folder}/info.json`);
             let response = await a.json();
 
             cardContainer.innerHTML +=
@@ -170,7 +169,7 @@ async function DisplayAlbums() {
                             <polygon points="10,8 16,12 10,16" fill="black"/>
                         </svg>
                               
-                        <img src="songs/${folder}/cover.jpeg" alt="">
+                        <img src="/songs/${folder}/cover.jpeg" alt="">
                         <h4>${response.Name}</h4>
                         <p>${response.Description}</p>
                     </div>`;
