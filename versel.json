@@ -9,7 +9,7 @@
     "routes": [
       {
         "src": "/songs/(.*)",
-        "dest": "/songs/$1"
+        "dest": "/songs"
       }
     ],
     "static": {
