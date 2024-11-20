@@ -1,14 +1,16 @@
 {
   "dependencies": {
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "serve-index": "^1.9.1",
+    "vite": "^5.4.11"
   },
   "name": "vibestream",
   "version": "1.0.0",
   "description": "VibeStream is a high-end web application that replicates the core functionality of Spotify, allowing users to effortlessly interact with their playlists, enjoy seamless music streaming, and access personalized recommendations tailored to their tastes.",
-  "main": "index.js",
-  "devDependencies": {},
+  "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
   },
   "keywords": [],
   "author": "",
